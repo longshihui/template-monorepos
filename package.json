@@ -1,87 +1,57 @@
 {
   "version": "0.0.0",
   "private": true,
-  "description": "根目录",
+  "type": "module",
+  "packageManager": "pnpm@10.26.1",
   "scripts": {
-    "preinstall": "npx -y only-allow pnpm",
+    "preinstall": "tsx ./scripts/check-corepack/check-corepack.ts",
     "prepare": "husky install",
-    "build-storybook": "build-storybook",
+    "build-storybook": "storybook build",
     "dev": "start-storybook",
     "build": "node ./scripts/build.js",
     "link": "node ./scripts/dev-link.js",
     "release": "node ./scripts/release.js --skipTests",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/longshihui/monorepos-template.git"
+    "test": "jest",
+    "storybook": "storybook dev -p 6006"
   },
   "engines": {
-    "node": "> 14.0.0",
-    "pnpm": "> 6.0.0",
-    "npm": "> 7.0.0"
-  },
-  "keywords": [
-    "npapi"
-  ],
-  "author": "longshihui",
-  "license": "MIT",
-  "dependencies": {
-    "core-js": "^3.20.2"
+    "node": ">= 22.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.5",
-    "@babel/plugin-syntax-jsx": "^7.16.7",
-    "@babel/preset-env": "^7.16.8",
-    "@changesets/cli": "^2.19.0",
-    "@commitlint/cli": "^15.0.0",
-    "@commitlint/config-angular": "^15.0.0",
-    "@commitlint/config-conventional": "^16.0.0",
-    "@jest/types": "^27.5.1",
-    "@microsoft/api-extractor": "^7.22.0",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^22.0.0",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@storybook/addon-actions": "^6.4.18",
-    "@storybook/addon-essentials": "^6.4.18",
-    "@storybook/addon-links": "^6.4.18",
-    "@storybook/preset-scss": "^1.0.3",
-    "@storybook/vue": "^6.4.18",
-    "@vue/babel-preset-jsx": "^1.2.4",
-    "@vue/test-utils": "1.2.2",
-    "chalk": "^4.1.2",
-    "conventional-changelog": "^3.1.25",
-    "conventional-changelog-cli": "^2.2.2",
-    "css-loader": "^5.2.7",
+    "@changesets/cli": "^2.29.8",
+    "@chromatic-com/storybook": "^4.1.3",
+    "@commitlint/cli": "^20.2.0",
+    "@commitlint/config-angular": "^20.2.0",
+    "@commitlint/config-conventional": "^20.2.0",
+    "@types/node": "25.0.3",
+    "@vitest/browser-playwright": "^4.0.16",
+    "@vitest/coverage-v8": "^4.0.16",
+    "@vue/babel-preset-jsx": "^1.4.0",
+    "@vue/test-utils": "2.4.6",
+    "chalk": "^5.6.2",
+    "conventional-changelog": "^7.1.1",
+    "conventional-changelog-cli": "^5.0.0",
+    "css-loader": "^7.1.2",
     "cz-conventional-changelog": "^3.3.0",
-    "enquirer": "^2.3.6",
-    "execa": "^5.1.1",
-    "globby": "^11.0.4",
-    "husky": "^7.0.4",
-    "inquirer": "^8.2.0",
-    "jest": "^27.5.1",
-    "minimist": "^1.2.5",
-    "postcss": "^8.4.5",
-    "prettier": "^2.5.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.75.6",
-    "rollup-plugin-dts": "^4.1.0",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.32.1",
-    "rollup-plugin-vue": "^5.1.9",
-    "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
-    "semver": "^7.3.5",
-    "ts-jest": "^27.1.3",
-    "typescript": "^4.7.4",
-    "vue": "^2.6.14",
-    "vue-loader": "^15.9.8",
-    "vue-template-compiler": "^2.6.11",
-    "yaml": "^1.10.2"
+    "enquirer": "^2.4.1",
+    "execa": "^9.6.1",
+    "globby": "^16.1.0",
+    "husky": "^9.1.7",
+    "inquirer": "^13.1.0",
+    "jest": "^30.2.0",
+    "minimist": "^1.2.8",
+    "playwright": "^1.57.0",
+    "postcss": "^8.5.6",
+    "prettier": "^3.7.4",
+    "rimraf": "^6.1.2",
+    "semver": "^7.7.3",
+    "storybook": "^10.1.10",
+    "ts-jest": "^29.4.6",
+    "tsx": "4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16",
+    "yaml": "^2.8.2"
   },
   "lint-staged": {
     "*.{ts, js,css,md}": "prettier --write"
@@ -90,10 +60,5 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  }
 }

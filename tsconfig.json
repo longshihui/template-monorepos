@@ -1,37 +1,10 @@
 {
-  "compilerOptions": {
-    "rootDir": ".",
-    "outDir": "dist",
-    "target": "ESNext",
-    "module": "ESNext",
-    "strict": true,
-    "jsx": "preserve",
-    "allowJs": true,
-    "importHelpers": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "noImplicitAny": false,
-    "lib": [
-      "ESNext",
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "baseUrl": ".",
-    "declaration": true,
-    "declarationDir": ".",
-    "paths": {
-      "@example/*": [
-        "packages/*/src"
-      ]
+  "references": [
+    {
+      "path": "./tsconfig.package.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
     }
-  },
-  "include": [
-    "packages/*/src",
-    "types/*"
-  ],
-  "exclude": [
-    "dist"
   ]
 }
